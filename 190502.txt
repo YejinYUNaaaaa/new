@@ -1,0 +1,25 @@
+def home(request):
+    blogs = Blog.objects
+    return render(request,'home.html', {'blogs':blogs})
+
+: Blog라는 class에서 뽀ㅃ아낸걸 사전형단위('blogs')로 만듬
+
+* Queryset 
+
+ path('',blog.views.home,name="home"), 
+: 
+
+원하는 데이터 뽑아쓰기 = 메소드 
+
+{% for blogs in blogs.all%}
+    <div class="container">
+        <h1>{{ blogs.title }}</h1>
+        <p>{{ blogs.pub_date}}</p>
+        <p>{{ blogs.body}}</p>
+    </div>
+    {% endfor %}
+
+> 불러오는 객체들 마다 title, pub_date, body라는 속성을 불러오겠음 
+> {% for blogs in blogs.all%} : 게시한걸 다 보여줄게
+
+
